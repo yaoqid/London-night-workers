@@ -1,0 +1,26 @@
+# Basic project information
+[project]
+name = "night_workers_analysis"
+version = "2024.0.1"
+authors = [{name = "Yaoqi Dong", email = "zczqydo@ucl.ac.uk"}]
+
+# Build system configuration
+[build-system]
+requires = ["setuptools >= 61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Setuptools configuration to locate packages
+[tool.setuptools.packages.find]
+where = ["my_python_project"]
+exclude = ["my_python_project/coursework2/tests"]  # Exclude test directory from installation
+
+# Including data files
+[tool.setuptools.package-data]
+night_workers_analysis = ["*.xlsx", "*.png"]
+
+# Pytest configuration
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+testpaths = ["my_python_project/coursework2/tests"]
